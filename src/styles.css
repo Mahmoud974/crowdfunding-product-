@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+body {
+  font-family: "Commissioner", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
