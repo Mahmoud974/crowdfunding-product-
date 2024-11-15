@@ -1,74 +1,11 @@
 <!-- <confirm-dialog-template-demo/> -->
+<app-donation-app/>
 <app-navbar></app-navbar>
-<!-- <section class="container max-w-3xl mx-auto mb-28">
+<section class="container max-w-3xl mx-auto mb-28">
 
     <app-box-monitor></app-box-monitor>
     <app-amount-bar></app-amount-bar>
     <app-about></app-about>
 
-</section> -->
-
-<section class="mx-auto container flex flex-col justify-center px-4">
-  <!-- Header Section -->
-  <div class="text-left mb-8">
-    <h2 class="font-bold text-2xl">Back this project</h2>
-    <p class="text-lg text-gray-600 mt-2">Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
-  </div>
-
-  <!-- Form Section -->
-  <form action="" class="max-w-lg mx-auto space-y-5">
-    @for(item of pledgeOptions; track item) {
-      <div class="border border-gray-200 rounded-xl p-6 shadow-md">
-        <div class="flex items-center justify-between mb-4">
-          <!-- Left Section: Radio Button and Title -->
-          <div class="flex items-center">
-            <input class="mr-2" type="radio" id="amount" name="amount" required min="100" max="10000" step="100" />
-            <label for="amount" class="font-bold text-lg">{{item.title}}</label>
-            <p class="text-xs text-[#3ed8b0] font-medium ml-2">{{item.pledge}}</p>
-          </div>
-
-          @if(item.price !== null) {
-            <div class="flex items-center">
-              <p class="text-lg font-bold">{{ item.price }}</p>
-              <span class="text-gray-400 text-sm font-medium ml-1">left</span>
-            </div>
-          }
-        </div>
-        
-        <p class="text-sm text-gray-600">{{item.description}}</p>
-
-        <hr class="my-4 border-t-1 border-gray-300" />
-
-        <div class="flex justify-between items-center gap-3">
-          <p class="text-sm">
-            Enter your pledge
-          </p>
-          
-          <!-- Input Section -->
-          <div class="flex items-center gap-3">
-            <div class="flex items-center border border-gray-300 rounded-full">
-              <span class="p-3 text-gray-700">$</span>
-              <input 
-                type="number" 
-                placeholder="" 
-                class="p-3 border-0 rounded-full w-32" 
-                min="100" 
-                max="10000" 
-                step="100" 
-                required
-              />
-            </div>
-          </div>
-
-          <!-- Continue Button -->
-          <button 
-            type="submit" 
-            class="bg-[#3ed8b0] text-white p-3 rounded-full font-semibold"
-          >
-            Continue
-          </button>
-        </div>
-      </div>
-    }
-  </form>
 </section>
+
