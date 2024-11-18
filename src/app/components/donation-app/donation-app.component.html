@@ -26,7 +26,7 @@
                 id="amount" 
                 name="amount" 
                 required 
-                min="100" 
+                min="0" 
                 max="10000" 
                 step="100" 
               />
@@ -60,10 +60,11 @@
                   <input 
                     type="number" 
                     placeholder="" 
+                    value={{item.amountPlans}}
                     class="p-3 border-0 rounded-full   " 
-                    min="100" 
+                    min={{item.amountPlans}} 
                     max="10000" 
-                    step="100" 
+                      
                     required
                   />
                 </div>
