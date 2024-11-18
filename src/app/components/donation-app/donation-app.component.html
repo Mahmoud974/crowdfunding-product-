@@ -1,9 +1,15 @@
-<section class="mx-auto container flex flex-col justify-center px-4 max-w-lg">
+<dialog id="my_modal_3" class="modal">
+  <div class="modal-box">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+   <section class="mx-auto container flex flex-col justify-center px-4 max-w-lg">
   <!-- Header Section -->
   <div class="text-left mb-8">
-    <h2 class="font-bold text-2xl">Back this project</h2>
+    <h2 class="font-bold text-2xl"  >Back this project</h2>
     <p class="text-sm text-gray-600 mt-2">Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
   </div>
+ 
 
   <!-- Form Section -->
   <form action="" class="max-w-lg mx-auto space-y-5">
@@ -15,7 +21,7 @@
             <div class="flex items-center">
               <input 
                 (click)="onRadioChange(item.id)" 
-                class="mr-2" 
+                class="mr-2 cursor-pointer" 
                 type="radio" 
                 id="amount" 
                 name="amount" 
@@ -24,7 +30,7 @@
                 max="10000" 
                 step="100" 
               />
-              <label for="amount" class="font-bold text-lg">{{item.title}}</label>
+              <label id="item-1" for="amount" class="cursor-pointer font-bold text-lg">{{item.title}}</label>
               <p class="text-xs text-[#3ed8b0] font-medium ml-2">{{item.pledge}}</p>
             </div>
 
@@ -76,5 +82,11 @@
         }
       </div>
     }
+    {{occupation()}}
+    
   </form>
 </section>
+
+
+  </div>
+</dialog>

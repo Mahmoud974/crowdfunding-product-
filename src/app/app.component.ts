@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogTemplateDemo } from './components/confirm-dialog-template-demo/confirm-dialog-template-demo.component';
 import { DonationAppComponent } from './components/donation-app/donation-app.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
