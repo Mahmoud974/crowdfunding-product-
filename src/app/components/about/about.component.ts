@@ -12,6 +12,4 @@ import { Plan, planArray } from '../../db/plan-array';
 export class AboutComponent {
   planArray: Plan[] = planArray;
   freePlan: boolean = true;
-
-  constructor() {}
 }

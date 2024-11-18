@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BoxMonitorComponent } from './components/box-monitor/box-monitor.component';
@@ -28,5 +28,8 @@ import { DonationAppComponent } from './components/donation-app/donation-app.com
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'crowdfunding';
+  someMessage = 'Hello from parent!';
+  good: string = 'jooook';
+  numberCalculate: number = 0;
+  selectedPledgeId: number = 0;
 }

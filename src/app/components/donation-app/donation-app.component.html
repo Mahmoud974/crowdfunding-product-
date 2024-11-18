@@ -12,7 +12,7 @@
  
 
   <!-- Form Section -->
-  <form action="" class="max-w-lg mx-auto space-y-5">
+  <form #donationForm="ngForm" (ngSubmit)="onSubmit(donationForm)" action="" class="max-w-lg mx-auto space-y-5">
     @for(item of pledgeOptions; track item) {
       <div class="border border-gray-200 rounded-xl py-5 shadow-md">
         <div class="px-6 ">
@@ -57,21 +57,22 @@
               <div class="flex items-center gap-1">
                 <div class="flex items-center border border-gray-300 rounded-full">
                   <span class="p-1 text-gray-700">$</span>
-                  <input 
-                    type="number" 
-                    placeholder="" 
-                    value={{item.amountPlans}}
-                    class="p-3 border-0 rounded-full   " 
-                    min={{item.amountPlans}} 
-                    max="10000" 
-                      
-                    required
-                  />
+                 <input 
+                  type="number"
+                  [(ngModel)]="numberInput" 
+                  [min]="item.amountPlans"
+                  [value]="item.amountPlans"
+                  max="10000"
+                  class="p-3 border-0 rounded-full"
+                  required
+                  name="amountInput"
+                />
                 </div>
               </div>
 
               <!-- Continue Button -->
               <button 
+              (click)="onClickContinue()"
                 type="submit" 
                 class="bg-[#3ed8b0] text-white p-3 rounded-full font-semibold"
               >
@@ -83,7 +84,7 @@
         }
       </div>
     }
-    {{occupation()}}
+ 
     
   </form>
 </section>

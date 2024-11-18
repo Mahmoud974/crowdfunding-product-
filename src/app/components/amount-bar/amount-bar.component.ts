@@ -5,8 +5,11 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './amount-bar.component.html',
-  styleUrl: './amount-bar.component.css'
+  styleUrl: './amount-bar.component.css',
 })
 export class AmountBarComponent {
-
+  amountTotal: number = 89.914;
+  constructor() {
+    console.log(this.amountTotal + 20);
+  }
 }
