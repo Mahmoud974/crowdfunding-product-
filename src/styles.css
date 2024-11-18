@@ -13,4 +13,5 @@ html {
   font-style: normal;
   background-color: #fff;
   color: #000;
+  scroll-behavior: smooth;
 }
