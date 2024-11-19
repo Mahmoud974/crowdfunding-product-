@@ -1,17 +1,11 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  input,
-  Output,
-  signal,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PledgeOptions, pledgeOptions } from '../../db/donation-array';
 import { CommonModule } from '@angular/common';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
+import { LocalStorageService } from '../local-storage.service';
 
 @Component({
   selector: 'app-donation-app',
@@ -24,45 +18,46 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
   ],
   templateUrl: './donation-app.component.html',
-  styleUrls: ['./donation-app.component.css'],
 })
 export class DonationAppComponent {
   pledgeOptions: PledgeOptions[] = pledgeOptions;
   selectedAmount: number = 0;
-  firstName = input<string>('Farouck');
-  visible: boolean = false;
-  items: any | undefined;
-  myNumber: number = 12;
 
-  protected occupation: any = signal('Developper');
-  numberInput: number = 0;
+  myNumber: number = 12;
+  defaultAmount: number = 89914;
+  totalAmount: number = this.defaultAmount;
+
+  numberInput: number = this.defaultAmount;
 
   @Output() notify = new EventEmitter<number>();
   @Input() stockNumber: number = 0;
-  @Output() selectedPledge = new EventEmitter<number>(); // Crée un EventEmitter pour envoyer les données
-  @Output() enteredAmount = new EventEmitter<number>(); // Pour l'amount saisi
+  @Output() selectedPledge = new EventEmitter<number>();
+  @Output() enteredAmount = new EventEmitter<number>();
 
-  onNumber = () => {
-    // this.myNumber = this.myNumber + 1;
-    // console.log(this.myNumber);
-  };
-
+  addToTotal(): void {
+    this.totalAmount += this.numberInput;
+    this.localStorageService.setItem('totalAmount', this.totalAmount);
+    console.log(`Montant total mis à jour : ${this.totalAmount}`);
+  }
   onRadioChange(itemId: number) {
-    this.occupation.set('Ingénieur');
-    console.log(this.occupation());
-
     this.selectedAmount = itemId;
     console.log('Radio selection changed: ', this.selectedAmount);
   }
-  onSubmit(donationForm: any) {
-    console.log('Valeur de numberInput:', this.numberInput);
-  }
 
-  onClickContinue() {
+  calculateTotal(itemId: number): number {
+    const selectedItem = this.pledgeOptions.find((item) => item.id === itemId);
+    if (selectedItem) {
+      return selectedItem.amountPlans + this.numberInput;
+    }
+    console.log(this.numberInput);
+
     return this.numberInput;
   }
-  onSubmitPledge() {
-    this.selectedPledge.emit(this.selectedAmount); // Émet l'ID du pledge sélectionné
-    this.enteredAmount.emit(this.numberInput); // Émet le montant saisi
+
+  onSubmit(donationForm: any) {
+    console.log('Valeur de numberInput:', this.numberInput);
+    console.log(this.defaultAmount);
   }
+
+  constructor(private localStorageService: LocalStorageService) {}
 }

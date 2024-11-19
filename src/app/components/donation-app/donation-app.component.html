@@ -6,7 +6,7 @@
    <section class="mx-auto container flex flex-col justify-center px-4 max-w-lg">
   <!-- Header Section -->
   <div class="text-left mb-8">
-    <h2 class="font-bold text-2xl"  >Back this project</h2>
+    <h2 class="font-bold text-2xl"   >Back this project</h2>
     <p class="text-sm text-gray-600 mt-2">Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
   </div>
  
@@ -19,18 +19,20 @@
           <div class="flex items-center justify-between mb-4">
             <!-- Left Section: Radio Button and Title -->
             <div class="flex items-center">
-              <input 
-                (click)="onRadioChange(item.id)" 
-                class="mr-2 cursor-pointer" 
-                type="radio" 
-                id="amount" 
-                name="amount" 
-                required 
-                min="0" 
-                max="10000" 
-                step="100" 
-              />
-              <label id="item-1" for="amount" class="cursor-pointer font-bold text-lg">{{item.title}}</label>
+               <input 
+              (click)="onRadioChange(item.id)" 
+              class="mr-2 cursor-pointer" 
+              type="radio" 
+              id="radio-{{item.id}}" 
+              name="amount" 
+              required 
+              value="{{item.id}}"
+            />
+            <!-- Associer le label à l'input via l'attribut `for` -->
+            <label 
+              for="radio-{{item.id}}" 
+              class="cursor-pointer font-bold text-lg"
+            >{{item.title}}</label>
               <p class="text-xs text-[#3ed8b0] font-medium ml-2">{{item.pledge}}</p>
             </div>
 
@@ -46,42 +48,41 @@
         </div>
 
         <!-- Button doit être active quand je clique sur input -->
-        @if(selectedAmount === item.id) {
-          <hr class="my-4 border-t-1 border-gray-300" />
-          <div class="px-6">
-            <div class="flex justify-between items-center gap-3">
-              <p class="text-sm">Enter your pledge</p>
-              
-            <div class="flex gap-3">
-                  <!-- Input Section -->
-              <div class="flex items-center gap-1">
-                <div class="flex items-center border border-gray-300 rounded-full">
-                  <span class="p-1 text-gray-700">$</span>
-                 <input 
-                  type="number"
-                  [(ngModel)]="numberInput" 
-                  [min]="item.amountPlans"
-                  [value]="item.amountPlans"
-                  max="10000"
-                  class="p-3 border-0 rounded-full"
-                  required
-                  name="amountInput"
-                />
-                </div>
-              </div>
-
-              <!-- Continue Button -->
-              <button 
-              (click)="onClickContinue()"
-                type="submit" 
-                class="bg-[#3ed8b0] text-white p-3 rounded-full font-semibold"
-              >
-                Continue
-              </button>
-            </div>
-            </div>
+      @if(selectedAmount === item.id) {
+  <hr class="my-4 border-t-1 border-gray-300" />
+  <div class="px-6">
+    <div class="flex justify-between items-center gap-3">
+      <p class="text-sm">Enter your pledge</p>
+      <div class="flex gap-3">
+        <!-- Input Section -->
+        <div class="flex items-center gap-1">
+          <div class="flex items-center border border-gray-300 rounded-full">
+            <span class="p-1 text-gray-700">$</span>
+            <input 
+              type="number"
+              [(ngModel)]="numberInput"
+              [min]="item.amountPlans"
+              value="{{item.amountPlans}}"
+              max="10000"
+              class="p-3 border-0 rounded-full"
+              required
+              name="amountInput"
+            />
           </div>
-        }
+        </div>
+
+        <!-- Continue Button -->
+        <button 
+  (click)="addToTotal()"
+  type="button" 
+  class="bg-[#3ed8b0] text-white p-3 rounded-full font-semibold"
+>
+          Continue
+        </button>
+      </div>
+    </div>
+  </div>
+}
       </div>
     }
  
