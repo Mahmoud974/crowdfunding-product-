@@ -2,7 +2,7 @@
   
   
   <div>
-    <h3 class="text-2xl font-bold mb-4">About this project</h3>
+    <h3 class="md:text-2xl font-bold mb-4">About this project</h3>
     <div class="text-sm text-gray-500 mb-6 space-y-4">
       <p>
         The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve your posture and make you more comfortable while at work, helping you stay focused on the task at hand.
@@ -18,19 +18,19 @@
     <li *ngFor="let item of planArray" class="bg-white border rounded-lg p-6 shadow-sm">
       
       <div *ngIf="freePlan && item.price === 0">
-        <div class="flex justify-between items-center">
-          <h3 class="text-lg font-semibold text-gray-400">Mahogany Special Edition</h3>
+        <div class="flex justify-between md:items-center md:flex-row flex-col">
+          <h3 class="md:text-lg font-semibold text-gray-400">Mahogany Special Edition</h3>
           <p class="text-[#3ed8b0] text-xs font-medium">Pledge $200 or more</p>
         </div>
         <p class="text-gray-400 mt-3">
           You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You'll be added to our Backer member list. Shipping is included.
         </p>
-        <div class="flex justify-between items-center mt-6">
-         <div class="flex items-center">
+        <div class="flex  md:flex-row flex-col justify-between md:items-center mt-6">
+         <div class="flex items-center md:mb-0 mb-4">
            <p class="text-3xl font-[700] text-gray-400">0 </p>
           <span class="text-gray-400 text-base font-medium ml-1">left</span>
          </div>
-          <button class="bg-gray-300 px-6 py-2 rounded-full text-white cursor-not-allowed text-xs font-bold">
+          <button class="bg-gray-300 px-6 py-2 rounded-full text-white cursor-not-allowed text-xs font-bold md:w-auto w-2/3">
             Out of stock
           </button>
         </div>
@@ -38,22 +38,22 @@
 
       <!-- Plan avec prix différent de 0 -->
       <div *ngIf="!freePlan || item.price > 0">
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between md:items-center md:flex-row flex-col">
           <h3 class="text-lg font-semibold">{{ item.title }}</h3>
           <p class="text-[#3ed8b0] text-xs font-medium">{{ item.pledge }}</p>
         </div>
         <p class="text-gray-500 mt-3">
           {{ item.description }}
         </p>
-        <div class="flex justify-between items-center mt-6">
+        <div class="flex md:flex-row flex-col justify-between md:items-center mt-6">
           <div class="flex items-center">
-            <div class="flex items-center">
-           <p class="text-3xl font-[700]  ">{{ item.price }} </p>
+            <div class="flex items-center md:mb-0 mb-4">
+           <p class="text-3xl font-[700] ">{{ item.price }} </p>
           <span class="  text-base font-medium ml-1">left</span>
          </div>
            
           </div>
-          <button onclick="my_modal_3.showModal()" class="bg-[#3ed8b0] font-bold text-xs text-white px-6 py-2 rounded-full hover:bg-emerald-600">
+          <button onclick="my_modal_3.showModal()" class="bg-[#3ed8b0] font-bold text-xs text-white px-6 py-2 rounded-full hover:bg-emerald-600 md:w-auto w-2/3">
             Select Reward
           </button>
         </div>
