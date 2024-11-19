@@ -7,7 +7,6 @@ import { Plan, planArray } from '../../db/plan-array';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.css',
 })
 export class AboutComponent {
   planArray: Plan[] = planArray;

@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { PledgeOptions, pledgeOptions } from '../../db/donation-array';
 import { CommonModule } from '@angular/common';
 import { DialogModule } from 'primeng/dialog';
@@ -18,6 +24,7 @@ import { LocalStorageService } from '../local-storage.service';
     FormsModule,
   ],
   templateUrl: './donation-app.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DonationAppComponent {
   pledgeOptions: PledgeOptions[] = pledgeOptions;

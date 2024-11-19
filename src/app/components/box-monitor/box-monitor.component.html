@@ -1,4 +1,4 @@
-<div id="about" class="relative bg-white border rounded-lg items-center p-6 -mt-20 mx-auto h-60">
+<div id="about" class="relative bg-white border rounded-lg items-center md:p-6 -mt-20 md:mx-auto mx-6 md:h-60  ">
   <!-- Image au bord de la box -->
   <img 
     src="./images/logo.png" 
@@ -7,12 +7,14 @@
   />
 
   <div class="text-center mt-10">
-    <h1 class="text-2xl font-bold mb-3">Mastercraft Bamboo Monitor Riser</h1>
+    <div class="md:px-0 px-4">
+      <h1 class="text-2xl font-bold mb-3">Mastercraft Bamboo Monitor Riser</h1>
     <p class="text-sm text-gray-500 mb-6 font-normal">
       A beautiful & handcrafted monitor stand to reduce neck and eye strain.
     </p>
+    </div>
  
-    <div class="flex justify-between mx-7">
+    <div class="flex justify-between mx-7 md:mb-0 mb-6">
       <button 
         onclick="my_modal_3.showModal()"
         class="bg-[#3fb599] text-xs text-white py-4 px-8 rounded-full hover:bg-[#257560]">
@@ -20,7 +22,7 @@
       </button>
 
       <button 
-        class="bg-[#e6f4f1] text-[#257560] text-sm pr-7 rounded-full hover:bg-[#d4ede7] flex items-center space-x-2">
+        class="md:bg-[#e6f4f1]  md:flex   text-[#257560] text-sm md:pr-7 rounded-full md:hover:bg-[#d4ede7]   items-center space-x-2">
         <!-- Rond coloré à gauche -->
         <span class="w-12 h-12 bg-[#257560] rounded-full flex items-center justify-center">
           <!-- Icône bookmark -->
@@ -28,7 +30,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v18l7-5 7 5V3H5z" />
           </svg>
         </span>
-        <span class="font-bold" (click)="submit()" >Bookmarked</span>
+        <span class="font-bold md:flex hidden" (click)="submit()" >Bookmarked</span>
       </button>
     </div>
   </div>

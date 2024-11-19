@@ -12,7 +12,6 @@ import {
   standalone: true,
   imports: [],
   templateUrl: './amount-bar.component.html',
-  styleUrl: './amount-bar.component.css',
 })
 export class AmountBarComponent implements OnInit, OnChanges {
   amountTotal: number = 89.914;

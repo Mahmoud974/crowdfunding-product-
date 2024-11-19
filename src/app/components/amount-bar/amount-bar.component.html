@@ -1,25 +1,21 @@
-<div class="bg-white border rounded-lg items-center p-6 mt-7 mx-auto h-auto py-8 ">
-  <ul class="flex justify-between items-center divide-x divide-gray-300"  >
+<div class="bg-white border rounded-lg items-center p-6 mt-7 md:mx-auto h-auto py-8 mx-6">
+  <ul class="flex flex-col md:flex-row justify-between items-center md:divide-y-0 divide-y md:divide-x divide-gray-300 space-y-3 md:space-y-0">
     <li class="px-4 flex flex-col items-center">
-      <p class="font-[700] text-3xl">${{amountInitial }}</p>
-      
-      <p class="text-gray-500">of $100,000 backed</p>
+      <p class="font-[700] text-3xl">${{amountInitial}}</p>
+      <p class="text-gray-500 text-sm">of $100,000 backed</p>
     </li>
-    <li class="px-4 flex flex-col tex items-center">
-      <p class="font-[700] text-3xl">5,007</p>
-      <p class="text-gray-500">total backers</p>
+    <li class="px-4  flex flex-col items-center">
+      <p class="font-[700] text-3xl mt-4">5,007</p>
+      <p class="text-gray-500 text-sm">total backers</p>
     </li>
     <li class="px-4 flex flex-col items-center text-left">
-      <p class="font-[700] text-3xl">56</p>
-      <p class="text-gray-500">days left</p>
+      <p class="font-[700] text-3xl mt-4">56</p>
+      <p class="text-gray-500  text-sm">days left</p>
     </li>
   </ul>
-  
+
   <!-- Barre de progression -->
-  <div class=" w-full mt-10 bg-gray-200 rounded-full h-3">
-    <div class="bg-[#3ed8b0] h-3 rounded-full" style="width:80%;">
- 
-    </div>
-   
+  <div class="w-full mt-6 bg-gray-200 rounded-full h-2">
+    <div class="bg-[#3ed8b0] h-2 rounded-full" style="width:80%;"></div>
   </div>
 </div>

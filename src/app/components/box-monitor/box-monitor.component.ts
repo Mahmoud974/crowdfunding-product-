@@ -7,7 +7,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [ConfirmDialogModule, ButtonModule, CommonModule],
   templateUrl: './box-monitor.component.html',
-  styleUrl: './box-monitor.component.css',
 })
 export class BoxMonitorComponent {
   @Input() message: string = 'ss';
