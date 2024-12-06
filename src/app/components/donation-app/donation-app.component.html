@@ -1,4 +1,5 @@
-<dialog id="my_modal_3" class="modal">
+@if(closeAfterPushContinue()){
+  <dialog id="my_modal_3" class="modal">
   <div class="modal-box  ">
   
    <section class="mx-auto container flex flex-col justify-center px-4 max-w-lg">
@@ -74,13 +75,12 @@
                     />
                   </div>
                 </div>
-                <button 
-                  (click)="addToTotal()" 
+          <button (click)="addToTotal()" 
                   type="button" 
-                  class="bg-[#3ed8b0] text-white p-3 rounded-full font-semibold"
-                >
+                  class="bg-[#3ed8b0] text-white p-3 rounded-full font-semibold"  onclick="document.getElementById('my_modal_2').showModal()">
                   Continue
                 </button>
+                
       </div>
     </div>
   </div>
@@ -95,3 +95,6 @@
 
   </div>
 </dialog>
+
+}
+ 

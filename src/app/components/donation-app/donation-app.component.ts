@@ -32,13 +32,13 @@ import { LocalStorageService } from '../local-storage.service';
 export class DonationAppComponent {
   pledgeOptions: PledgeOptions[] = pledgeOptions;
   selectedAmount: number = 0;
-
+  closeAfterPushContinue = signal<boolean>(true);
   myNumber: number = 12;
   @Input() amountTotal: number = 89914;
 
   numberInput: number = this.amountTotal;
 
-  @Output() notify = new EventEmitter<number>(); // Ce @Output permet de transmettre des données vers le parent
+  @Output() notify = new EventEmitter<number>();
   @Input() stockNumber: number = 0;
 
   enteredAmount: number = 0;
@@ -48,10 +48,12 @@ export class DonationAppComponent {
   @ViewChild('dialogRef') dialogRef!: ElementRef<HTMLDialogElement>;
 
   public addToTotal(): void {
-    this.enteredAmount && console.log((this.amountTotal += this.enteredAmount));
+    this.enteredAmount &&
+      console.log((this.amountTotal += this.enteredAmount - 2));
     this.theTotalinitial.set((this.amountTotal += this.enteredAmount));
     // this.amountParent.emit(this.theTotalinitial);
     this.amountParent.emit(this.amountTotal);
+    this.closeAfterPushContinue.set(false);
   }
 
   onRadioChange(id: number): void {

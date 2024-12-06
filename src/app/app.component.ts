@@ -7,6 +7,7 @@ import { AboutComponent } from './components/about/about.component';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { DonationAppComponent } from './components/donation-app/donation-app.component';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ import { DonationAppComponent } from './components/donation-app/donation-app.com
     AboutComponent,
     ButtonModule,
     DonationAppComponent,
+    ConfirmationDialogComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
