@@ -1,11 +1,11 @@
 <!-- <confirm-dialog-template-demo/> -->
-<app-donation-app/>
+<app-donation-app [amountTotal]="amountTotal" (amountParent)="doSomething($event)"/>
 <app-navbar></app-navbar>
 <section class="container max-w-3xl mx-auto mb-28">
 
     <app-box-monitor ></app-box-monitor>
 
-    <app-amount-bar [amountInitial]="amountInitial"   ></app-amount-bar>
-    <app-about  ></app-about>
+    <app-amount-bar [contributorCount]="contributorCount" [amountTotal]="amountTotal" [amountTotalParent]="amountTotalParent" ></app-amount-bar>
+    <app-about ></app-about>
 </section>
 

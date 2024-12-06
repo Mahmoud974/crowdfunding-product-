@@ -4,6 +4,9 @@ import {
   EventEmitter,
   Input,
   Output,
+  ViewChild,
+  ElementRef,
+  signal,
 } from '@angular/core';
 import { PledgeOptions, pledgeOptions } from '../../db/donation-array';
 import { CommonModule } from '@angular/common';
@@ -31,40 +34,47 @@ export class DonationAppComponent {
   selectedAmount: number = 0;
 
   myNumber: number = 12;
-  defaultAmount: number = 89914;
-  totalAmount: number = this.defaultAmount;
+  @Input() amountTotal: number = 89914;
 
-  numberInput: number = this.defaultAmount;
+  numberInput: number = this.amountTotal;
 
-  @Output() notify = new EventEmitter<number>();
+  @Output() notify = new EventEmitter<number>(); // Ce @Output permet de transmettre des données vers le parent
   @Input() stockNumber: number = 0;
-  @Output() selectedPledge = new EventEmitter<number>();
-  @Output() enteredAmount = new EventEmitter<number>();
 
-  addToTotal(): void {
-    this.totalAmount += this.numberInput;
-    this.localStorageService.setItem('totalAmount', this.totalAmount);
-    console.log(`Montant total mis à jour : ${this.totalAmount}`);
-  }
-  onRadioChange(itemId: number) {
-    this.selectedAmount = itemId;
-    console.log('Radio selection changed: ', this.selectedAmount);
+  enteredAmount: number = 0;
+  theTotalinitial = signal(0);
+  @Output() amountParent = new EventEmitter<any>();
+  @Output() onDatePicked = new EventEmitter<any>();
+  @ViewChild('dialogRef') dialogRef!: ElementRef<HTMLDialogElement>;
+
+  public addToTotal(): void {
+    this.enteredAmount && console.log((this.amountTotal += this.enteredAmount));
+    this.theTotalinitial.set((this.amountTotal += this.enteredAmount));
+    // this.amountParent.emit(this.theTotalinitial);
+    this.amountParent.emit(this.amountTotal);
   }
 
-  calculateTotal(itemId: number): number {
-    const selectedItem = this.pledgeOptions.find((item) => item.id === itemId);
-    if (selectedItem) {
-      return selectedItem.amountPlans + this.numberInput;
+  onRadioChange(id: number): void {
+    this.selectedAmount = id;
+  }
+
+  openDialog(): void {
+    if (this.dialogRef) {
+      this.dialogRef.nativeElement.showModal();
     }
-    console.log(this.numberInput);
-
-    return this.numberInput;
   }
 
-  onSubmit(donationForm: any) {
+  closeDialog(): void {
+    if (this.dialogRef) {
+      this.dialogRef.nativeElement.close();
+    }
+  }
+
+  onSubmit(donationForm: any): void {
     console.log('Valeur de numberInput:', this.numberInput);
-    console.log(this.defaultAmount);
-  }
+    console.log(this.amountTotal);
 
-  constructor(private localStorageService: LocalStorageService) {}
+    // Émettre l'amountTotal vers le parent
+    this.notify.emit(this.amountTotal); // Émet la valeur vers le parent
+  }
 }

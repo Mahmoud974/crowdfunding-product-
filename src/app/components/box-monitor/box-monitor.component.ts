@@ -10,7 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class BoxMonitorComponent {
   @Input() message: string = 'ss';
-  submit() {
-    alert(this.message);
+  openBookMarked() {
+    window.alert(this.message);
+    console.log(' à regler!!!');
   }
 }

@@ -9,6 +9,7 @@ import { Plan, planArray } from '../../db/plan-array';
   templateUrl: './about.component.html',
 })
 export class AboutComponent {
+  PriceExact: boolean = false;
   planArray: Plan[] = planArray;
   freePlan: boolean = true;
 }

@@ -63,26 +63,24 @@
           <div class="flex items-center border border-gray-300 rounded-full">
             <span class="p-1 text-gray-700">$</span>
             <input 
-              type="number"
-              [(ngModel)]="numberInput"
-              [min]="item.amountPlans"
-              value="{{item.amountPlans}}"
-              max="10000"
-              class="p-3 border-0 rounded-full"
-              required
-              name="amountInput"
-            />
-          </div>
-        </div>
-
-        <!-- Continue Button -->
-        <button 
-  (click)="addToTotal()"
-  type="button" 
-  class="bg-[#3ed8b0] text-white p-3 rounded-full font-semibold"
->
-          Continue
-        </button>
+                      type="number" 
+                      [(ngModel)]="enteredAmount" 
+                      name="amountInput" 
+                      [value]="item.amountPlans" 
+                      [min]="item.amountPlans" 
+                      max="10000" 
+                      class="p-3 border-0 rounded-full" 
+                      required 
+                    />
+                  </div>
+                </div>
+                <button 
+                  (click)="addToTotal()" 
+                  type="button" 
+                  class="bg-[#3ed8b0] text-white p-3 rounded-full font-semibold"
+                >
+                  Continue
+                </button>
       </div>
     </div>
   </div>

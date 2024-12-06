@@ -1,5 +1,5 @@
 import { LocalStorageService } from './components/local-storage.service';
-import { Component, Input } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BoxMonitorComponent } from './components/box-monitor/box-monitor.component';
 import { AmountBarComponent } from './components/amount-bar/amount-bar.component';
@@ -21,13 +21,23 @@ import { DonationAppComponent } from './components/donation-app/donation-app.com
     DonationAppComponent,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  @Input() amountInitial: number;
+  amountTotal: number = 89914;
+  amountTotalParent = signal(89914);
 
-  constructor(private localStorageService: LocalStorageService) {
-    this.amountInitial =
-      this.localStorageService.getItem('totalAmount') || 89914;
+  contributorCount: number = 5007;
+
+  public doSomething(amount: number): void {
+    // Met à jour le total
+    this.amountTotalParent.set(amount);
+
+    // Incrémente le nombre de contributeurs
+    this.contributorCount += 1;
+
+    // Logs pour vérification
+    console.log('Montant total mis à jour : ', amount);
+    console.log('Nombre de contributeurs : ', this.contributorCount);
   }
 }
