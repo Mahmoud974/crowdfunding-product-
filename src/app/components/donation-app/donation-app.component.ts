@@ -45,6 +45,7 @@ export class DonationAppComponent {
   @Output() onDatePicked = new EventEmitter<any>();
   @ViewChild('dialogRef') dialogRef!: ElementRef<HTMLDialogElement>;
 
+  selectedId: number = 2;
   pickTheValue(nbre: number) {
     console.log(nbre);
 
@@ -86,5 +87,8 @@ export class DonationAppComponent {
     console.log(this.amountTotal);
 
     this.notify.emit(this.amountTotal);
+  }
+  isChecked(id: number): boolean {
+    return this.selectedId === id;
   }
 }

@@ -28,13 +28,17 @@ export class AppComponent {
   amountTotal: number = 89914;
   amountTotalParent = signal(89914);
   contributorCount: number = 5007;
+  pick: any = signal('');
 
   public doSomething(amount: number): void {
     this.amountTotalParent.set(amount);
-
     this.contributorCount += 1;
-
-    console.log('Montant total mis à jour : ', amount);
-    console.log('Nombre de contributeurs : ', this.contributorCount);
   }
+
+  pickTitle(name: any) {
+    console.log(this.pick);
+    this.pick.set(name);
+  }
+
+  // Méthode pour calculer la largeur de la barre de progression
 }

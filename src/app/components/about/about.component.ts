@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { Plan, planArray } from '../../db/plan-array';
 
 @Component({
@@ -12,4 +12,10 @@ export class AboutComponent {
   PriceExact: boolean = false;
   planArray: Plan[] = planArray;
   freePlan: boolean = true;
+  @Input() pick = '';
+
+  pickTitle(name: any) {
+    this.pick = name;
+    console.log(this.pick);
+  }
 }

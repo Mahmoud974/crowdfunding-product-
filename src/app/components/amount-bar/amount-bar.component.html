@@ -14,8 +14,8 @@
     </li>
   </ul>
 
-  <!-- Barre de progression -->
+  <!-- Barre de progression avec largeur dynamique -->
   <div class="w-full mt-6 bg-gray-200 rounded-full h-2">
-    <div class="bg-[#3ed8b0] h-2 rounded-full" style="width:80%;"></div>
+    <div class="bg-[#3ed8b0] h-2 rounded-full" [style.width]="getProgressBarWidth()"></div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-@if(closeAfterPushContinue()){
+
   <dialog id="my_modal_3" class="modal">
   <div class="modal-box  ">
 
@@ -32,6 +32,8 @@
               name="amount"
               required
               value="{{item.id}}"
+
+
             />
 
             <label
@@ -76,18 +78,15 @@
                   </div>
                 </div>
 
-                 <form method="dialog">
-
-
-                      <button
-                      (click)="addToTotal()"
-                     class="btn bg-[#3ed8b0] text-white p-3 rounded-full font-semibold"
-                        onclick="document.getElementById('my_modal_2').showModal()"
-                      >
-                        Continue
-                      </button>
-                      </form>
-
+    <form method="dialog">
+        <button
+        (click)="addToTotal()"
+        class="btn bg-[#3ed8b0] text-white p-3 rounded-full font-semibold"
+          onclick="document.getElementById('my_modal_2').showModal()"
+        >
+          Continue
+        </button>
+        </form>
       </div>
     </div>
   </div>
@@ -103,4 +102,4 @@
   </div>
 </dialog>
 
-}
+
