@@ -11,7 +11,6 @@ import { CommonModule } from '@angular/common';
 export class BoxMonitorComponent {
   @Input() message: string = 'ss';
   openBookMarked() {
-    window.alert(this.message);
-    console.log(' à regler!!!');
+    alert('to use the CTRL+D');
   }
 }

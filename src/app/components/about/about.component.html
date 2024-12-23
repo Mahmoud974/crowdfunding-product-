@@ -1,6 +1,4 @@
 <div id="discover" class="bg-white border rounded-lg items-center p-6 mt-10 mx-auto h-auto">
-  
-  
   <div>
     <h3 class="md:text-2xl font-bold mb-4">About this project</h3>
     <div class="text-sm text-gray-500 mb-6 space-y-4">
@@ -16,7 +14,7 @@
   <!-- Several plans -->
   <ul class="space-y-6">
     <li *ngFor="let item of planArray" class="bg-white border rounded-lg p-6 shadow-sm">
-      
+
       <div *ngIf="freePlan && item.price === 0">
         <div class="flex justify-between md:items-center md:flex-row flex-col">
           <h3 class="md:text-lg font-semibold text-gray-400">Mahogany Special Edition</h3>
@@ -51,7 +49,7 @@
            <p class="text-3xl font-[700] ">{{ item.price }} </p>
           <span class="  text-base font-medium ml-1">left</span>
          </div>
-           
+
           </div>
           <button onclick="my_modal_3.showModal()" class="bg-[#3ed8b0] font-bold text-xs text-white px-6 py-2 rounded-full hover:bg-emerald-600 md:w-auto w-2/3">
             Select Reward
@@ -63,4 +61,4 @@
 </div>
 
 
- 
+

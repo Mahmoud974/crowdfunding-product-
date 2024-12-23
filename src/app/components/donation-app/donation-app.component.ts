@@ -14,7 +14,6 @@ import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
-import { LocalStorageService } from '../local-storage.service';
 
 @Component({
   selector: 'app-donation-app',
@@ -37,7 +36,6 @@ export class DonationAppComponent {
   @Input() amountTotal: number = 89914;
 
   numberInput: number = this.amountTotal;
-
   @Output() notify = new EventEmitter<number>();
   @Input() stockNumber: number = 0;
 
@@ -47,23 +45,34 @@ export class DonationAppComponent {
   @Output() onDatePicked = new EventEmitter<any>();
   @ViewChild('dialogRef') dialogRef!: ElementRef<HTMLDialogElement>;
 
+  pickTheValue(nbre: number) {
+    console.log(nbre);
+
+    return nbre;
+  }
+
   public addToTotal(): void {
     this.enteredAmount &&
       console.log((this.amountTotal += this.enteredAmount - 2));
     this.theTotalinitial.set((this.amountTotal += this.enteredAmount));
-    // this.amountParent.emit(this.theTotalinitial);
+
     this.amountParent.emit(this.amountTotal);
     this.closeAfterPushContinue.set(false);
   }
-
   onRadioChange(id: number): void {
     this.selectedAmount = id;
+
+    // Trouver l'option sélectionnée pour initialiser enteredAmount
+    const selectedOption = this.pledgeOptions.find(
+      (option) => option.id === id
+    );
+    if (selectedOption) {
+      this.enteredAmount = selectedOption.amountPlans;
+    }
   }
 
   openDialog(): void {
-    if (this.dialogRef) {
-      this.dialogRef.nativeElement.showModal();
-    }
+    this.closeAfterPushContinue.set(true);
   }
 
   closeDialog(): void {
@@ -76,7 +85,6 @@ export class DonationAppComponent {
     console.log('Valeur de numberInput:', this.numberInput);
     console.log(this.amountTotal);
 
-    // Émettre l'amountTotal vers le parent
-    this.notify.emit(this.amountTotal); // Émet la valeur vers le parent
+    this.notify.emit(this.amountTotal);
   }
 }

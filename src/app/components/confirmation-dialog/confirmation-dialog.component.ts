@@ -7,7 +7,6 @@ import { Component, signal } from '@angular/core';
   templateUrl: './confirmation-dialog.component.html',
 })
 export class ConfirmationDialogComponent {
-  // Vos variables existantes
   showConfirmation: boolean = false;
   amountTotal: number = 89914;
   amountTotalParent = signal(89914);
