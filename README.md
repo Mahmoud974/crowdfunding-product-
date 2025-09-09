@@ -3,7 +3,7 @@
 Une application Angular qui simule une page de **financement participatif** pour le projet *Mastercraft Bamboo Monitor Riser*.  
 Elle permet aux utilisateurs de consulter les informations de la campagne, de sélectionner une récompense, de faire un pledge et de sauvegarder le projet en favori (*bookmark*).
 
-![Aperçu du projet](./images/crowdfund.png)
+![Aperçu du projet](public/images/crowdfund.png)
 ---
 
 ## ✨ Fonctionnalités
