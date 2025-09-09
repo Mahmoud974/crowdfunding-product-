@@ -1,11 +1,4 @@
-import {
-  Component,
-  Input,
-  OnInit,
-  OnChanges,
-  SimpleChanges,
-  ChangeDetectorRef,
-} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-amount-bar',
@@ -21,6 +14,8 @@ export class AmountBarComponent {
   getProgressBarWidth(): any {
     const goal = 100000;
     const progress = this.amountTotalParent();
+    console.log(progress);
+
     const prc = (progress / goal) * 100;
     if (prc <= 100) {
       console.log(prc);

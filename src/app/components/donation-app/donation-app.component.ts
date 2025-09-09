@@ -32,38 +32,32 @@ export class DonationAppComponent {
   pledgeOptions: PledgeOptions[] = pledgeOptions;
   selectedAmount: number = 0;
   closeAfterPushContinue = signal<boolean>(true);
-  myNumber: number = 12;
+
   @Input() amountTotal: number = 89914;
 
   numberInput: number = this.amountTotal;
   @Output() notify = new EventEmitter<number>();
-  @Input() stockNumber: number = 0;
 
   enteredAmount: number = 0;
   theTotalinitial = signal(0);
   @Output() amountParent = new EventEmitter<any>();
-  @Output() onDatePicked = new EventEmitter<any>();
   @ViewChild('dialogRef') dialogRef!: ElementRef<HTMLDialogElement>;
 
   selectedId: number = 2;
-  pickTheValue(nbre: number) {
-    console.log(nbre);
-
-    return nbre;
-  }
 
   public addToTotal(): void {
-    this.enteredAmount &&
-      console.log((this.amountTotal += this.enteredAmount - 2));
+    this.enteredAmount && console.log((this.amountTotal += this.enteredAmount));
+    //89914
     this.theTotalinitial.set((this.amountTotal += this.enteredAmount));
 
     this.amountParent.emit(this.amountTotal);
+    console.log(this.amountParent);
+
     this.closeAfterPushContinue.set(false);
   }
   onRadioChange(id: number): void {
     this.selectedAmount = id;
 
-    // Trouver l'option sélectionnée pour initialiser enteredAmount
     const selectedOption = this.pledgeOptions.find(
       (option) => option.id === id
     );
@@ -87,8 +81,5 @@ export class DonationAppComponent {
     console.log(this.amountTotal);
 
     this.notify.emit(this.amountTotal);
-  }
-  isChecked(id: number): boolean {
-    return this.selectedId === id;
   }
 }

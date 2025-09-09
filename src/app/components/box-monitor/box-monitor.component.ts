@@ -9,7 +9,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './box-monitor.component.html',
 })
 export class BoxMonitorComponent {
-  @Input() message: string = 'ss';
   openBookMarked() {
     alert('to use the CTRL+D');
   }
